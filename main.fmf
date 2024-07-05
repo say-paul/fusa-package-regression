@@ -1,0 +1,19 @@
+summary: Run tests with custom shared objects using LD_PRELOAD
+discover:
+    how: fmf
+prepare:
+    how: shell
+execute:
+    how: tmt
+    script: |
+        #!/bin/bash
+        set -e
+
+        # Run the build script
+        ./build.sh
+
+        # Find all shared objects in the build directory
+        for so_file in build/*.so; do
+            echo "Testing with shared object: $so_file"
+            ./runtest.sh "$so_file"
+        done
