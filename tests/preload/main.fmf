@@ -1,0 +1,4 @@
+summary: Test with all shared objects
+component:
+  - glibc
+test: ./run_tests.sh

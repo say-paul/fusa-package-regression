@@ -1,0 +1,14 @@
+summary: Build and test C code with LD_PRELOAD
+discover:
+    how: fmf
+execute:
+    how: tmt
+provision:
+    how: local
+prepare:
+    - name: Install dependencies
+      how: install
+      package: gcc
+    - name: Build shared objects
+      how: shell
+      script: ./build.sh
